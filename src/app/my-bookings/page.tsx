@@ -6,6 +6,8 @@ import { Calendar, MapPin, XCircle, ArrowRight, ExternalLink } from 'lucide-reac
 import Link from 'next/link'
 import { format } from 'date-fns'
 
+export const dynamic = 'force-dynamic'
+
 export default async function MyBookingsPage() {
   const session = await getServerSession(authOptions)
 

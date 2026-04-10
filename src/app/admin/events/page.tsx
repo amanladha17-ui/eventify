@@ -5,6 +5,8 @@ import { format } from 'date-fns'
 import DeleteEventButton from '@/components/admin/DeleteEventButton'
 import SearchBar from '@/components/SearchBar'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminEventsPage({ searchParams }: { searchParams: Promise<{ search?: string }> }) {
   const resolvedSearchParams = await searchParams;
   

@@ -3,6 +3,8 @@ import { Download, Search, Mail, Calendar, User } from 'lucide-react'
 import { format } from 'date-fns'
 import SearchBar from '@/components/SearchBar'
 
+export const dynamic = 'force-dynamic'
+
 export default async function RegistrationsPage({ searchParams }: { searchParams: Promise<{ search?: string }> }) {
   const resolvedSearchParams = await searchParams;
   const search = resolvedSearchParams.search || '';
