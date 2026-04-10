@@ -8,6 +8,8 @@ import { authOptions } from '@/lib/auth'
 
 import BookingButton from '@/components/BookingButton'
 
+export const dynamic = 'force-dynamic'
+
 export default async function EventDetailPage({ params }: { params: Promise<{ id: string }> }) {
     const session = await getServerSession(authOptions)
     const resolvedParams = await params;

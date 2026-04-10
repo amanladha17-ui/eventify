@@ -6,6 +6,8 @@ import { Heart, Calendar, MapPin, ArrowRight, Trash2 } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+export const dynamic = 'force-dynamic'
+
 export default async function WishlistPage() {
   const session = await getServerSession(authOptions)
 
