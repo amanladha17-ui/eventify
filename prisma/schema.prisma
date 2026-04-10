@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  CUSTOMER
+}
+
+enum EventStatus {
+  DRAFT
+  PUBLISHED
+  CANCELLED
+}
+
+enum Category {
+  HACKATHON
+  CONCERT
+  STAND_UP_COMEDY
+  WORKSHOP
+  CONFERENCE
+  SPORTS
+  NETWORKING
+  OTHER
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  password      String
+  role          Role      @default(CUSTOMER)
+  bookings      Booking[]
+  wishlist      Wishlist[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Event {
+  id              String      @id @default(cuid())
+  name            String
+  category        Category
+  description     String      @db.Text
+  dateTime        DateTime
+  venue           String
+  price           Float       @default(0)
+  capacity        Int
+  bookingsCount   Int         @default(0)
+  bannerImage     String?
+  tags            String[]
+  status          EventStatus @default(DRAFT)
+  isRefundable    Boolean     @default(true)
+  bookings        Booking[]
+  wishlist        Wishlist[]
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+}
+
+model Booking {
+  id          String   @id @default(cuid())
+  userId      String
+  eventId     String
+  user        User     @relation(fields: [userId], references: [id])
+  event       Event    @relation(fields: [eventId], references: [id])
+  bookingDate DateTime @default(now())
+
+  @@unique([userId, eventId])
+}
+
+model Wishlist {
+  id        String   @id @default(cuid())
+  userId    String
+  eventId   String
+  user      User     @relation(fields: [userId], references: [id])
+  event     Event    @relation(fields: [eventId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@unique([userId, eventId])
+}
