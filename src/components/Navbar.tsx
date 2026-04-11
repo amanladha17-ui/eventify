@@ -9,7 +9,7 @@ export default function Navbar() {
     const { data: session, status } = useSession()
     const pathname = usePathname()
 
-    if (pathname.startsWith('/auth')) {
+    if (pathname.startsWith('/auth') || pathname === '/') {
         return null
     }
 

@@ -8,20 +8,7 @@ export default function Home() {
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-600/20 blur-[120px] rounded-full -z-10" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-cyan-500/20 blur-[120px] rounded-full -z-10" />
 
-      {/* Navigation */}
-      <nav className="container mx-auto px-6 py-8 flex justify-between items-center relative z-10">
-        <div className="flex items-center space-x-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-cyan-500 rounded-xl flex items-center justify-center">
-            <Calendar className="text-white w-6 h-6" />
-          </div>
-          <span className="text-2xl font-bold tracking-tighter">Eventify</span>
-        </div>
-        <div className="hidden md:flex items-center space-x-8 text-sm font-medium">
-          <Link href="#features" className="hover:text-primary transition-colors">Features</Link>
-          <Link href="#categories" className="hover:text-primary transition-colors">Categories</Link>
-          <Link href="/events" className="hover:text-primary transition-colors font-bold text-secondary">Browse Events</Link>
-        </div>
-      </nav>
+
 
       {/* Hero Section */}
       <section className="container mx-auto px-6 pt-20 pb-32 text-center relative z-10">
