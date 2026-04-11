@@ -18,7 +18,8 @@ export default withAuth(
   },
   {
     callbacks: {
-      authorized: ({ token }) => !!token,
+      // Return true to always run the middleware function above it so custom redirects work
+      authorized: () => true,
     },
   }
 )
