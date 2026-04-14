@@ -66,12 +66,3 @@ Whether you're a customer looking for the next big hackathon or an administrator
 | **Lucide Icons** | Icon system |
 
 ---
-
-## ⚙️ Installation & Setup
-
-### 1️⃣ Clone Repository
-
-```bash
-git clone https://github.com/guptavidur/Eventify.git
-cd Eventify
-npm install
